@@ -1,0 +1,326 @@
+h1, h2, h3, h4, h5
+{
+    color: #FFFFFF;
+    font-weight: bolder;
+    margin: 0px;
+}
+
+label {
+    font-weight: bolder;
+    font-size: 2rem;
+}
+
+.petitText {
+  font-size: 1rem;
+}
+
+input {
+    height: 90px!important;
+    font-size: 1.5rem!important;
+    padding: 30px 20px 0px 20px!important;
+}
+
+.hoverShow {
+    display: none !important;
+  }
+  
+.hoverHide{
+    display: inline;
+}
+  
+.hover:hover .hoverHide {
+    display: none;
+}
+  
+.hover:hover .hoverShow {
+    display: inline !important;
+}
+
+.formDiv {
+  position: absolute;
+  top: 35%;
+  padding-top: 30px;
+}
+
+.inputWidth {
+  width: 500px!important;
+
+  margin-bottom: 15px!important;
+}
+
+.alertConnexion {
+  background-color: rgba(255, 242, 168,0.7);
+  border: 1px solid rgba(255, 242, 168,0.7);
+
+  width: 500px;
+  padding: 10px;
+
+  font-size: 1.2rem;
+  font-weight: bolder;
+  color: #0B2341;
+}
+
+.alertPosition {
+  height: 90px;
+  width: 250px;
+
+  position: absolute;
+  z-index: 2;
+  right: 80%;
+  margin-right: 10px;
+
+  font-size: 1.2rem;
+  font-weight: bolder;
+  color: #0B2341;
+
+  background-color: rgba(255, 242, 168,0.7);
+  border: 1px solid rgba(255, 242, 168,0.1);
+}
+
+.alertPosition::after {
+  content: "";
+  position: absolute;
+  top: 50%;                     
+  margin-top: -15px;                
+  right:-29.5px;
+  border: solid 14px transparent;
+  border-left-color: rgba(255, 242, 168,0.7);
+  z-index: 1;
+}
+
+.form-control:focus {
+  border: 1px solid rgba(255, 242, 168,0.7)!important;
+  box-shadow: 0px 0px 2px 5px rgba(255, 242, 168,0.7)!important;
+}
+
+.coBorder {
+    border-radius: 0px 5px 5px 0px!important;
+    width: 50px;
+}
+
+.alerteMDP {
+  margin-bottom: 35px!important;
+}
+
+.alerteMDP:hover {
+    background: rgba(255, 242, 168,0.7);
+    color: #0B2341;
+}
+
+.alerteMDP:hover .dramaLine {
+    text-decoration: underline;
+}
+
+.btn-co {
+    background-color: #0B2341; 
+    color: #0076D5;
+}
+
+.accueilText {
+    color: #0b2341;
+    font-family: 'Poppins', sans-serif;
+}
+
+.accueil {
+    position: relative;
+}
+
+#cloud {
+    background: rgba(255, 255, 255);
+    width: 300px; 
+    height: 100px;
+    border-radius: 150px;	
+    box-shadow: 10px 10px rgba(0,0,0,0.2);
+    animation: move 3s infinite;
+  }
+
+ .logoAccueil {
+    height: 125px;
+    position: absolute;
+    top: -50px;
+    right: 70px;
+} 
+
+  #cloud:after {
+    content: '';
+    background: rgba(255, 255, 255);
+    position: absolute;
+    z-index: -1;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    top: -50px;
+    left: 50px;
+  }
+  
+  #cloud:before {
+    content: '';
+    background: rgba(255, 255, 255);
+    position: absolute;
+    width: 170px;
+    height: 150px;
+    border-radius: 50%;
+    top: -90px;
+    right: 40px;
+  }
+  
+  @keyframes move {
+    0% {
+      transform: translatex(0);
+    }
+    50% {
+      transform: translatex(-40px);
+    }
+  }
+
+.cloudDiv {
+    position: absolute;
+    left:50%;
+    top: 25%;
+    transform: translate(-50%,-50%);
+}
+
+video {
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
+  
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+#videoBG {
+    position: absolute;
+}
+
+#videoFrame {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 118, 213, .75)
+  }
+
+.footer {
+    position: sticky;
+    top: 200px;
+    padding: 0;
+}
+
+@media (max-width: 576px) or ((max-height: 800px) and (min-width:1000px)) { 
+
+  .cloudDiv {
+    position: absolute;
+    left:50%;
+    top: 20%;
+  }
+
+  #videoFrame {
+    overflow: scroll;
+}
+
+  .formDiv {
+    position: absolute;
+    top: 30%;
+  }
+
+  #cloud {
+    width: 200px; 
+    height: 60px;
+    box-shadow: 5px 5px rgba(0,0,0,0.2);
+    animation: none
+  }
+  
+  #cloud:after {
+    width: 60px;
+    height: 60px;
+    top: -50px;
+    left: 30px;
+  }
+  
+  #cloud:before {
+    width: 120px;
+    height: 110px;
+    top: -70px;
+    right: 20px;
+  }
+ 
+  label {
+      font-size: 1.2rem;
+  }
+
+  input {
+    height: 70px!important;
+    font-size: 1.2rem!important;
+    font-weight: bolder;
+    padding: 20px 20px 0px 20px!important;
+  }
+
+  .inputWidth {
+    width: 300px!important;
+  }
+
+  .logoAccueil {
+    height: 90px;
+    position: absolute;
+    top: -40px;
+    right: 50px;
+  } 
+
+  .alertPosition {
+    display: none!important;
+  }
+
+  .alertPosition::after {
+    display: none!important;
+  }
+
+  .alertConnexion {
+    font-size: 1rem;
+    width: 300px;
+  }
+
+  .alerteMDP {
+    font-size: 1rem;
+  }
+
+}
+
+@media (min-width: 576px) and (max-width:1180px) {
+  .alertPosition {
+    display: none!important;
+  }
+
+  .alertPosition::after {
+    display: none!important;
+  }
+
+  .alerteMDP {
+    font-size: 1.5rem;
+  }
+}
+
+@media(max-height: 800px) and (min-width:1000px) {
+  .alerteMDP {
+    font-size: 1rem!important;
+  }
+
+  .alertConnexion {
+    width: 500px;
+  }
+
+  .formDiv {
+    top: 25%;
+    padding-top: 45px;
+  }
+}
