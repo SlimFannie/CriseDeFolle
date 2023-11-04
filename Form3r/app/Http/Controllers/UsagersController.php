@@ -15,6 +15,10 @@ use Validator;
 
 class UsagersController extends Controller
 {
+    public function index() {
+        return View('welcome');
+    }
+
     public function login(Request $request)
     {   
         $validator = Validator::make($request->all(), [

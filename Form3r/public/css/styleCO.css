@@ -1,24 +1,8 @@
-h1, h2, h3, h4, h5
-{
-    color: #FFFFFF;
-    font-weight: bolder;
-    margin: 0px;
-}
+/* Texte */
 
-label {
-    font-weight: bolder;
-    font-size: 2rem;
-}
 
-.petitText {
-  font-size: 1rem;
-}
 
-input {
-    height: 90px!important;
-    font-size: 1.5rem!important;
-    padding: 30px 20px 0px 20px!important;
-}
+/* Effets */
 
 .hoverShow {
     display: none !important;
@@ -36,15 +20,10 @@ input {
     display: inline !important;
 }
 
-.formDiv {
-  position: absolute;
-  top: 35%;
-  padding-top: 30px;
-}
+/* Input */
 
 .inputWidth {
   width: 500px!important;
-
   margin-bottom: 15px!important;
 }
 
@@ -111,11 +90,6 @@ input {
     text-decoration: underline;
 }
 
-.btn-co {
-    background-color: #0B2341; 
-    color: #0076D5;
-}
-
 .accueilText {
     color: #0b2341;
     font-family: 'Poppins', sans-serif;
@@ -173,13 +147,6 @@ input {
     }
   }
 
-.cloudDiv {
-    position: absolute;
-    left:50%;
-    top: 25%;
-    transform: translate(-50%,-50%);
-}
-
 video {
     object-fit: fill;
     height: 100%;
@@ -196,7 +163,6 @@ video {
 
 #videoFrame {
     position: relative;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -217,43 +183,17 @@ video {
     padding: 0;
 }
 
-@media (max-width: 576px) or ((max-height: 800px) and (min-width:1000px)) { 
-
-  .cloudDiv {
-    position: absolute;
-    left:50%;
-    top: 20%;
+@media (max-height: 800px) and (min-width:1000px) {
+  .formDiv {
+    margin-top: 20px;
   }
-
-  #videoFrame {
-    overflow: scroll;
 }
 
-  .formDiv {
-    position: absolute;
-    top: 30%;
-  }
+@media (max-width: 576px) {
 
-  #cloud {
-    width: 200px; 
-    height: 60px;
-    box-shadow: 5px 5px rgba(0,0,0,0.2);
-    animation: none
-  }
-  
-  #cloud:after {
-    width: 60px;
-    height: 60px;
-    top: -50px;
-    left: 30px;
-  }
-  
-  #cloud:before {
-    width: 120px;
-    height: 110px;
-    top: -70px;
-    right: 20px;
-  }
+}
+
+@media (max-width: 576px) or ((max-height: 800px) and (min-width:1000px)) { 
  
   label {
       font-size: 1.2rem;
