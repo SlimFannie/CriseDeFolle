@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsagersController;
+use App\Http\Controllers\FormulairesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,8 @@ use App\Http\Controllers\UsagersController;
 |
 */
 
+/* Connexion */
+
 Route::get('/', function () {
     return view('connexion');
 })->name('connexion');
@@ -21,5 +24,13 @@ Route::get('/', function () {
 Route::POST('/connexion',
 [UsagersController::class, 'login'])->name('usagers.login');
 
-Route::POST('/déconnexion',
+Route::get('/déconnexion',
 [UsagersController::class, 'logout'])->name('usagers.logout');
+
+Route::get('/{username}',
+[UsagersController::class, 'index'])->name('dashboard');
+
+/* Accident de travail */
+
+Route::get('/{username}/AccidentDeTravail',
+[FormulairesController::class, 'accident'])->name('formulaires.accident');

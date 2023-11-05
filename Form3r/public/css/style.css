@@ -11,8 +11,24 @@ body {
 
 /* Texte */
 
-h1, h2, h3, h4, h5, p, label, a, button {
+h1, h2, h3, h4, h5, p, label, a, button, i {
     font-family: 'Poppins', sans-serif;
-    color: #0B2341;
     font-weight: bolder;
+    color: #0B2341;
+
+    margin: 0px;
+}
+
+.blackText {
+    color: black!important;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+/* Navbar */
+
+.logoNav {
+    height: 10vh;
 }
