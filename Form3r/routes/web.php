@@ -28,9 +28,12 @@ Route::get('/déconnexion',
 [UsagersController::class, 'logout'])->name('usagers.logout');
 
 Route::get('/{username}',
-[UsagersController::class, 'index'])->name('dashboard');
+[FormulairesController::class, 'index'])->name('dashboard');
 
 /* Accident de travail */
 
 Route::get('/{username}/AccidentDeTravail',
 [FormulairesController::class, 'accident'])->name('formulaires.accident');
+
+Route::POST('/{username}/AccidentDeTravail/Envoi',
+[FormulairesController::class, 'storeAccident'])->name('store.accident');

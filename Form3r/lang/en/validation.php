@@ -166,6 +166,12 @@ return [
     'custom' => [
         'motdepasse' => [
             'required' => 'Vous devez entrer un mot de passe.',
+        ],
+        'fonction' => [
+            'required' => 'Vous devez entrer votre fonction.'
+        ],
+        'dateHeure' => [
+            'required' => 'Vous devez choisir une date et une heure.'
         ]
     ],
 

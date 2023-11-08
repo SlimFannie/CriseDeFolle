@@ -7,38 +7,46 @@
     <div class="row g-0">
         <div class="col-12 g-0">
             <h2>Déclarer un accident de travail</h2>
-            <form method="POST">
+            <form method="POST" action="{{ route('store.accident', $username) }}">
+                @csrf
+                <div>
+                    @if ($errors->any())
+                    <div class="alert alert-warning" role="alert">
+                        <h5>{{$errors->first()}}</h5>
+                    </div>
+                    @endif
+                </div>
                 <h4>Identification</h4>
                 <p><span class="underline">Nom complet:</span> {{Session::get('user.prenom')}} {{Session::get('user.nom')}}</p>
-                <p><span class="underline">Numéro d'employé:</span> {{Session::get('user.matricule')}}</p>
+                <p><span class="underline">Numéro d'employé:</span> {{Session::get('user.mwefatricule')}}</p>
                 <!-- Bouton modal identifiant inexacte -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Ces identifiants sont inexactes?
+                    Ces identifiants sont inexactes?  
                 </button>
                 <!---->
                 <div class="form-floating text-center">
-                    <input type="text" class="form-control" name="fonction" id="fonction" placeholder="Menuisier">
+                    <input type="text" class="form-control" name="fonction" id="fonction" placeholder="Menuisier" value="{{ old('fonction') }}">
                     <label for="fonction" id="labelFonction" class="px-4">Fonction lors de l'accident</label>
                 </div>
 
                 <h4>Description de l'accident</h4>
                 <div class="form-floating text-center">
-                    <input type="datetime-local" class="form-control" name="dateHeure" id="dateHeure">
+                    <input type="datetime-local" class="form-control" name="dateHeure" id="dateHeure" value="{{ old('dateHeure') }}">
                     <label for="dateHeure" id="labelDateHeure" class="px-4">Date et heure de l'accident</label>
                 </div>
                 <div class="form-floating text-center">
-                    <input type="text" class="form-control" name="endroit" id="endroit" placeholder="Dans l'entrée de l'hôtel de ville.">
+                    <input type="text" class="form-control" name="endroit" id="endroit" value="{{ old('endroit') }}" placeholder="Dans l'entrée de l'hôtel de ville.">
                     <label for="endroit" id="labelEndroit" class="px-4">Endroit où l'accident s'est produit</label>
                 </div>
                 <div class="form-floating text-center">
-                    <input type="text" class="form-control" name="secteur" id="secteur" placeholder="Secteur">
+                    <input type="text" class="form-control" name="secteur" id="secteur" value="{{ old('secteur') }}" placeholder="Secteur">
                     <label for="secteur" id="labelSecteur" class="px-4">Secteur d'activité</label>
                 </div>
                 <div class="input-group text-center">
                     <span class="input-group-text">
                         <label for="temoins" id="labelTemoins" class="px-4">Témoins(s)</label>
-                        <input type="text" class="form-control" name="temoins" id="temoin1" placeholder="Témoin 1">
-                        <input type="text" class="form-control" name="temoins" id="temoin2" placeholder="Témoin 2">    
+                        <input type="text" class="form-control" name="temoins1" id="temoin1" placeholder="Témoin 1" value="{{ old('temoins') }}">
+                        <input type="text" class="form-control" name="temoins2" id="temoin2" placeholder="Témoin 2" value="{{ old('temoins') }}">    
                     </span>
                 </div>
                 <div class="container-fluid g-0">
@@ -46,42 +54,44 @@
                         <div class="col-12 col-lg-6">
                             <h4>Nature et site de la blessure</h4>
                             <p>Cochez, s'il y a lieu, le côté droit ou le côté gauche.</p>
-                            <div class="input-group" name="endroitBlessure">
-                                <div class="input-group" name="latete">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="tete" name="tete" value="1">
-                                        <label class="form-check-label" for="tete">Tête, visage, yeux, oreille</label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <div class="input-group" name="latete">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="tete" name="tete" value="tete">
+                                            <label class="form-check-label" for="tete">Tête, visage, yeux, oreille</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" id="directionGauche" name="tete" value="gauche">
+                                            <label class="form-check-label" for="directionGauche">Gauche</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" id="directionDroite" name="tete" value="droite">
+                                            <label class="form-check-label" for="directionDroite">Droite</label>
+                                        </div>
                                     </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="directionGauche" name="tete" value="1">
-                                        <label class="form-check-label" for="directionGauche">Gauche</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="torse" name="torse" value="1">
+                                        <label class="form-check-label" for="torse">Torse</label>
                                     </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="directionDroite" name="tete" value="1">
-                                        <label class="form-check-label" for="directionDroite">Droite</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="poumon" name="poumon" value="1">
+                                        <label class="form-check-label" for="poumon">Poumon</label>
                                     </div>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="torse" name="torse" value="1">
-                                    <label class="form-check-label" for="torse">Torse</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="poumon" name="poumon" value="1">
-                                    <label class="form-check-label" for="poumon">Poumon</label>
-                                </div>
-                                <div class="input-group" name="lesbras">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="bras" name="bras" value="1">
-                                        <label class="form-check-label" for="bras">Bras, épaule, coude</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="directionGauche" name="bras" value="1">
-                                        <label class="form-check-label" for="directionGauche">Gauche</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" id="directionDroite" name="bras" value="1">
-                                        <label class="form-check-label" for="directionDroite">Droite</label>
-                                    </div>
+                                    <div class="input-group" name="lesbras">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="bras" name="bras" value="1">
+                                            <label class="form-check-label" for="bras">Bras, épaule, coude</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" id="directionGauche" name="bras" value="1">
+                                            <label class="form-check-label" for="directionGauche">Gauche</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" id="directionDroite" name="bras" value="1">
+                                            <label class="form-check-label" for="directionDroite">Droite</label>
+                                        </div>
+                                    </span>
                                 </div>
                                 <div class="input-group" name="lesmains">
                                     <div class="form-check form-check-inline">
@@ -229,7 +239,7 @@
                     <option selected>Choisissez...</option>
                     @if (count((array)$superieurs))
                         @foreach ($superieurs as $superieur)
-                        <option value="{{$superieur->id}}">{{$superieur->prenom}} {{$superieur->nom}}</option>
+                        <option value="{{$superieur->matricule}}">{{$superieur->prenom}} {{$superieur->nom}}</option>
                         @endforeach
                     @else
                         <option>Erreur, veuillez contacter un administrateur.</option>

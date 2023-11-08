@@ -22,7 +22,7 @@
         </div>
         <div class="row text-center g-0">
             <div class="col-12 g-0">
-                <form method="POST" id="FormUsager" action="{{ route('usagers.login') }}" onsubmit="return requiredConnexion()">
+                <form method="POST" id="FormUsager" action="{{ route('usagers.login') }}">
                     @csrf
                     <div>
                         @if ($errors->any())

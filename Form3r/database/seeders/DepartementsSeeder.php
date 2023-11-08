@@ -31,6 +31,7 @@ class DepartementsSeeder extends Seeder
             ['nom'=>'Sécurité incendie et sécurité civile'],
             ['nom'=>'Services juridiques'],
             ['nom'=>'Travaux publics'],
+            ['nom'=>'Aucun'],
         ]);
     }
 }

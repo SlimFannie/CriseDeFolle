@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('courriel');
             $table->string('mdp');
-            $table->Integer('departement')->nullable();
+            $table->foreignId('departement_id')->constrained();
             $table->boolean('superieur')->default(false);
             $table->boolean('admin')->default(false);
             $table->Integer('matriculeSuperieur')->nullable();
